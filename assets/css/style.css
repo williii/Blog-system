@@ -1,0 +1,47 @@
+.post-date {
+	background: #f4f4f4;
+	padding: 4px;
+	margin: 3px 0;
+	display: block;
+}
+
+.post-thumbnail {
+	border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 170px;
+}
+
+.pagination-links {
+	margin: 30px 0;
+}
+
+.pagination-links strong {
+	padding: 8px 13px;
+	margin: 5px;
+	background: #f4f4f4;
+	border: 1px #ccc solid;
+}
+
+a.pagination-link {
+	padding: 8px 13px;
+	margin: 5px;
+	background: #f4f4f4;
+	border: 1px #ccc solid;
+}
+
+.cat-delete {
+	display: inline;
+}
+
+.user-deactivate {
+	display: inline;
+}
+
+.right-table {
+	float: right;
+}
+
+.left-table {
+	float: left;
+}
