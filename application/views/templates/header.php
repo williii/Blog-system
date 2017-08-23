@@ -20,7 +20,6 @@
 						<?php if($this->session->userdata('user_id') == 1) : ?>
 							<li><a href="<?php echo base_url(); ?>authors">Authors</a></li>
 						<?php endif; ?>
-						
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						
@@ -92,6 +91,12 @@
 			<?php if($this->session->flashdata('category_deleted')): ?>
 				<?php echo '<p class="alert alert-success">'.$this->
 				session->flashdata('category_deleted').'</p>'; ?>
+			
+			<?php endif; ?>
+			
+			<?php if($this->session->flashdata('user_deactivation')): ?>
+				<?php echo '<p class="alert alert-danger">'.$this->
+				session->flashdata('user_deactivation').'</p>'; ?>
 			
 			<?php endif; ?>
 			

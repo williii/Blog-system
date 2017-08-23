@@ -33,11 +33,24 @@
 			$this->form_validation->set_rules('username','Username','required');
 			$this->form_validation->set_rules('password','Password','required');
 			
+			$username = $this->input->post('username');
+			$password = md5($this->input->post('password'));
+			
+			$status = $this->user_model->login_status($username, $password);
+			
 			if($this->form_validation->run() === FALSE) {
 				$this->load->view('templates/header');
 				$this->load->view('users/login', $data);
 				$this->load->view('templates/footer');
 				
+			} else if ($status == 'deactivated') {
+				$this->session->set_flashdata('user_deactivation',
+					'Your account has been deactivated');
+				
+				$this->load->view('templates/header');
+				$this->load->view('users/login', $data);
+				$this->load->view('templates/footer');
+
 			} else {
 				
 				$username = $this->input->post('username');
@@ -45,10 +58,12 @@
 				
 				$user_id = $this->user_model->login($username, $password);
 				
+				
 				if($user_id) {
 					$user_data = array(
 						'user_id' => $user_id,
 						'username' => $username,
+						'status' => $status,
 						'logged_in' => true
 					);
 					
